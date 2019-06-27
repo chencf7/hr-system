@@ -10,9 +10,29 @@ export interface loginProps{
 class Login extends React.Component<loginProps, {}>{
   render(){
     return (
-      <div className="content">
-        <div className="login-header">
-          <div>人力资源办公系统</div>
+      <div>
+        <div className="login-background">
+        </div>
+        <div className="login-content">
+          <div className="header">
+            {/* <div>人力资源办公系统</div> */}
+          </div>
+          <div className="outer">
+            <div className="middle">
+              <div className="inner-content">
+                <span className="title">登录</span>
+                <div className="row">
+                  <input type="text" />
+                </div>
+                <div className="row">
+                  <input type="password" />
+                </div>
+                <div className="row">
+                  <a id="idA_PWD_SwitchToCredPicker" href="#">注册</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

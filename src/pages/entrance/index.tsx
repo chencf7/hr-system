@@ -10,7 +10,7 @@ import reducer from 'redux/reducers';
 import Router from 'routerconfig/Router';
 
 const store=createStore(reducer);
-// 充值
+
 ReactDOM.render(
   <Provider store={store}>
     <Router />
