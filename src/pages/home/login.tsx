@@ -1,5 +1,5 @@
 import React from 'react';
-import 'assets/css/home.css'
+import 'assets/css/home.scss';
 
 export interface loginProps{
 
@@ -11,7 +11,9 @@ class Login extends React.Component<loginProps, {}>{
   render(){
     return (
       <div className="content">
-        dslkdkls
+        <div className="login-header">
+          <div>人力资源办公系统</div>
+        </div>
       </div>
     );
   }
