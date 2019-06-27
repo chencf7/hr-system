@@ -22,7 +22,7 @@ class Login extends React.Component<loginProps, {}>{
               <div className="inner-content">
                 <span className="title">登录</span>
                 <div className="row">
-                  <input type="text" />
+                  <input type="text" spellCheck={false} placeholder="请输入登录名"/>
                 </div>
                 <div className="row">
                   <input type="password" />
