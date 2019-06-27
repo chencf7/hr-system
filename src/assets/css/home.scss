@@ -4,7 +4,7 @@ $login: "login";
 .content{
   display: flex;
 }
-.login-header{
+.#{$login}-header{
   border-bottom: 1px solid $gray-color;
   height: 58px;
   width: 100%;
