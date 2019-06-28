@@ -2,6 +2,8 @@ import React from 'react';
 import {Icon} from 'antd';
 
 import 'assets/css/home.scss';
+import {Http} from 'utils/Utilmethod';
+import * as URL from 'utils/Url';
 
 interface IProps {
 }
@@ -18,7 +20,8 @@ class Login extends React.Component<IProps, {}>{
   un: any;
   pw: any;
   onClickloginIn():void{
-    console.log(this.un.value, this.pw.value);
+    // console.log(this.un.value, this.pw.value);
+    Http.post(URL.LogininURL, {});
   }
   render(){
     return (
