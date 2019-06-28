@@ -62,6 +62,7 @@ $login: "login";
   }
   & .row{
     display: table;
+    position: relative;
     margin-bottom: 20px;
     width: 100%;
   }
@@ -78,19 +79,39 @@ $login: "login";
     width: 100%;
     font-size: 16px;
     font-weight: 400;
+    padding-left: 30px;
   }
   & input:focus{
     border-bottom-color: #0067b8;
   }
   & .input-addon{
-    display: table-cell;
-    width: 1%;
-    border-width: 0 0 1px;
-    border-style: solid;
-    border-color: rgba(0,0,0,.6);
-    padding-right: 1rem;
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    white-space: nowrap;
+    // display: table-cell;
+    // width: 1%;
+    // border-width: 0 0 1px;
+    // border-style: solid;
+    // border-color: rgba(0,0,0,.6);
+    // padding-right: 1rem;
   }
   & input:focus{
     border-bottom-color: #0067b8;
+  }
+  & #idA_Loginin{
+    color: #0067b8;
+    font-size: 14px;
+  }
+  & button{
+    float: right;
+    background-color: #005da6;
+    color: #fff;
+    height: 32px;
+    border: none;
+    min-width: 108px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 14px;
   }
 }
