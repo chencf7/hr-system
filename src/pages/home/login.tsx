@@ -1,4 +1,6 @@
 import React from 'react';
+import {Icon} from 'antd';
+
 import 'assets/css/home.scss';
 
 export interface loginProps{
@@ -23,8 +25,14 @@ class Login extends React.Component<loginProps, {}>{
                 <span className="title">登录</span>
                 <div className="row">
                   <input type="text" spellCheck={false} placeholder="请输入登录名"/>
+                  <div className="input-addon">
+                    <Icon type="user" style={{fontSize: 16}}/>
+                  </div>
                 </div>
                 <div className="row">
+                  <div className="input-addon">
+                    <Icon type="lock" style={{fontSize: 16}}/>
+                  </div>
                   <input type="password" />
                 </div>
                 <div className="row">
