@@ -33,5 +33,5 @@ export const Http={
         }
       });
     },
-  get: null,
+  get: null
 }
