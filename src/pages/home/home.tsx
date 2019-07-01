@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from 'components/Navbar';
 
 interface IProps{
 
@@ -8,14 +9,14 @@ interface IState{
 
 }
 
-class HomeComp extends React.Component<IProps, IState>{
+class Homecomp extends React.Component<IProps, IState>{
   render(){
     return (
       <div>
-        123
+        <Navbar></Navbar>
       </div>
     );
   }
 }
 
-export default HomeComp;
+export default Homecomp;

@@ -1,19 +1,18 @@
-$gray-color: #ccc;
-
 $login: "login";
+$hrsystem: "hr-system";
 
 .#{$login}-background{
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
   background: {
     // color: #ccc;
     image: url(../images/login-background.jpg);
     position: center;
     repeat: no-repeat;
   }
-  position: fixed;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
 }
 .#{$login}-content{
   display: table;
@@ -99,7 +98,7 @@ $login: "login";
   & input:focus{
     border-bottom-color: #0067b8;
   }
-  & #idA_Loginin{
+  & #ida_register{
     color: #0067b8;
     font-size: 14px;
   }
@@ -114,4 +113,9 @@ $login: "login";
     cursor: pointer;
     font-size: 14px;
   }
+}
+
+.#{$hrsystem}-header{
+  min-height: 5rem;
+  background-color: indigo;
 }
