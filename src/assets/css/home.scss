@@ -124,6 +124,7 @@ $login: "login";
   height: 0.64rem;
   background-color: var(--purple_hd);
   color: #fff;
+  box-shadow: 0 0.05rem 0.1rem rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.1);
 }
 .#{$hr}-navbar-brand{
   display: table-cell;
@@ -145,11 +146,34 @@ $login: "login";
   align-items: center;
   list-style: none;
   color:#cbbde2;
-  font-size: 0.16rem;
+  font-size: 0.14rem;
   margin-left: auto;
   margin-bottom: 0;
 }
 .#{$hr}-navbar-item{
   display: inline-block;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.#{$hr}-menu{
+  box-sizing: border-box;
+  display: table;
+  width: 100%;
+  padding: 0.08rem 0.16rem;
+  min-height: 0.48rem;
+  height: 0.48rem;
+
+  & .menu-group{
+    color: #333;
+    white-space: nowrap;
+    // font-family: "msyh","Microsoft YaHei";
+    font-weight: 300;
+    list-style: none;
+    margin-bottom: 0;
+  }
+
+  & a{
+    color: #333;
+  }
 }

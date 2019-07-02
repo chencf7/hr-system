@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from 'components/Navbar';
 
+import 'assets/css/home.scss';
+
 interface IProps{
 
 }
@@ -14,6 +16,25 @@ class Homecomp extends React.Component<IProps, IState>{
     return (
       <div>
         <Navbar></Navbar>
+        <div className="hr-menu">
+          <nav>
+            <ul className="menu-group">
+              <li>
+                <a>
+                  <svg className="icon" aria-hidden="true">
+                    <use xlinkHref="#icon-zuzhiguanli"></use>
+                  </svg>
+                  组织管理
+                </a>
+                <div></div>
+              </li>
+              <li>
+                <a>考勤管理</a>
+                <div></div>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     );
   }

@@ -20,7 +20,7 @@ class Navbarcomp extends React.Component<IProps, {}>{
               <span id="idspan_user">陈超凡</span>
               <Icon type="mail" style={{fontSize: 14, paddingLeft: 5}} />
             </li>
-            <li className="hr-navbar-item">退出</li>
+            <li className="hr-navbar-item"><a>退出</a></li>
           </ul>
         </div>
       </header>
