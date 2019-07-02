@@ -1,5 +1,5 @@
+$hr: "hr";
 $login: "login";
-$hrsystem: "hr-system";
 
 .#{$login}-background{
   position: fixed;
@@ -53,7 +53,7 @@ $hrsystem: "hr-system";
   & .title{
     display: block;
     color: #404040;
-    font-size: 2.4rem;
+    font-size: 0.24rem;
     font-weight: 600;
     padding: 0;
     margin-top: 16px;
@@ -76,7 +76,7 @@ $hrsystem: "hr-system";
     border-radius: 0;
     -webkit-border-radius: 0;
     width: 100%;
-    font-size: 1.4rem;
+    font-size: 0.14rem;
     font-weight: 400;
     padding-left: 30px;
   }
@@ -100,7 +100,7 @@ $hrsystem: "hr-system";
   }
   & #ida_register{
     color: #0067b8;
-    font-size: 1.4rem;
+    font-size: 0.14rem;
   }
   & button{
     float: right;
@@ -111,11 +111,45 @@ $hrsystem: "hr-system";
     min-width: 108px;
     white-space: nowrap;
     cursor: pointer;
-    font-size: 1.4rem;
+    font-size: 0.14rem;
   }
 }
 
-.#{$hrsystem}-header{
-  min-height: 6.4rem;
-  background-color: var(--header-color);
+.#{$hr}-header{
+  box-sizing: border-box;
+  display: table;
+  width: 100%;
+  padding: 0.08rem 0.16rem;
+  min-height: 0.64rem;
+  height: 0.64rem;
+  background-color: var(--purple_hd);
+  color: #fff;
+}
+.#{$hr}-navbar-brand{
+  display: table-cell;
+  color: #fff;
+  font-size: 0.18rem;
+  vertical-align: middle;
+  width: 1%;
+  white-space: nowrap;
+}
+.#{$hr}-navbar-brand:hover{
+  color: #fff;
+}
+.#{$hr}-navbar-content{
+  display:flex;
+  height: 100%;
+}
+.#{$hr}-navbar-group{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  color:#cbbde2;
+  font-size: 0.16rem;
+  margin-left: auto;
+  margin-bottom: 0;
+}
+.#{$hr}-navbar-item{
+  display: inline-block;
+  margin-left: 10px;
 }
