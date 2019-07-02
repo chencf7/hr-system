@@ -158,9 +158,9 @@ $login: "login";
 
 .#{$hr}-menu{
   box-sizing: border-box;
-  display: table;
+  // display: flex;
   width: 100%;
-  padding: 0.08rem 0.16rem;
+  padding: 0 0.16rem;
   min-height: 0.48rem;
   height: 0.48rem;
 
@@ -168,9 +168,14 @@ $login: "login";
     color: #333;
     white-space: nowrap;
     // font-family: "msyh","Microsoft YaHei";
-    font-weight: 300;
+    // font-weight: 300;
     list-style: none;
     margin-bottom: 0;
+  }
+
+  & .menu-item{
+    display: inline-block;
+    padding-right: 0.2rem;
   }
 
   & a{

@@ -19,7 +19,7 @@ class Homecomp extends React.Component<IProps, IState>{
         <div className="hr-menu">
           <nav>
             <ul className="menu-group">
-              <li>
+              <li className="menu-item">
                 <a>
                   <svg className="icon" aria-hidden="true">
                     <use xlinkHref="#icon-zuzhiguanli"></use>
@@ -28,7 +28,7 @@ class Homecomp extends React.Component<IProps, IState>{
                 </a>
                 <div></div>
               </li>
-              <li>
+              <li className="menu-item">
                 <a>考勤管理</a>
                 <div></div>
               </li>
