@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Icon} from 'antd';
-import {getMenulistByuser} from 'redux/actions/homeAction';
+import {getMenulistcs, getMenulistByuser} from 'redux/actions/homeAction';
 
 import 'assets/css/home.scss';
 
@@ -69,15 +69,12 @@ class Navbarcomp extends React.Component<IProps, {}>{
 const mapStateToProps=(state: any) => ({
   menuList: state.menuList
 })
-// const mapDispatchToProps=(dispatch:any)=>({
-//   doChangeCategorys: (menuList:Array<any>)=>dispatch(changeCategorys(menuList))
-// });
-
+const mapDispatchToProps=(dispatch:any)=>({
+  doChangeCategorys: (menuList:Array<any>)=>dispatch(getMenulistcs(menuList))
+});
+console.log(mapDispatchToProps);
 export default connect(
   mapStateToProps,
   {getMenulistByuser}
+  //Object.assign(mapDispatchToProps, )
 )(Navbarcomp);
-// export default connect(
-//   mapStateToProps,
-//   {getMenulist}
-// )(Navbarcomp);

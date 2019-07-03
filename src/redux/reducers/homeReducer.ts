@@ -13,7 +13,6 @@ const initialState:homeState={
 }
 
 const homeReducer=(state:homeState=initialState, action: any)=>{
-  debugger;
   switch(action.type){
     case Actiontype.LOGIN_IN:
       return {...state, userId: '123', userName: '123'};

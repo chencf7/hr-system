@@ -1,4 +1,4 @@
 import {BaseUrl} from './Utilmethod';
 
 export const LogininURL=BaseUrl+'/';
-export const otherurl = BaseUrl+'/';
+export const getMenu = BaseUrl+'/Home/Menu';

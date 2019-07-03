@@ -4,11 +4,9 @@ import Navbar from 'components/Navbar';
 import 'assets/css/home.scss';
 
 interface IProps{
-
 }
 
 interface IState{
-
 }
 
 class Homecomp extends React.Component<IProps, IState>{
