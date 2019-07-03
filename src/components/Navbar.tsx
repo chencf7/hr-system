@@ -1,13 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Icon} from 'antd';
-// import {getMenulistcs, getMenulistByuser} from 'redux/actions/homeAction';
-import {getMenulistByuser} from 'redux/actions/homeAction';
+import {
+  getMenulistByuser,
+  changeSecondmenu
+} from 'redux/actions/homeAction';
 import 'assets/css/home.scss';
 
 interface IProps{
   menuList:Array<any>,
-  getMenulistByuser?:any
+  smenuvisible:boolean,
+  getMenulistByuser?:any,
+  changeSecondmenu:Function
 }
 
 // state不能null
@@ -20,14 +24,21 @@ class Navbarcomp extends React.Component<IProps, {}>{
   }
   firstMenuhoverin(menuname:string){
     console.log(menuname);
-    debugger;
+    this.props.changeSecondmenu(true);
+  }
+  firstMenuhoverOut(){
+    this.props.changeSecondmenu(false);
   }
   FirstMenulist(){
     const {menuList}=this.props;
     return menuList.map((data, index)=>{
       if(index===0){
         return (
-          <li className="menu-item" onMouseEnter={()=>this.firstMenuhoverin(data.name)}>
+          <li
+              className="menu-item"
+              key={data.id}
+              onClick={()=>this.firstMenuhoverin(data.name)}
+          >
             <a>
               <svg className="icon" aria-hidden="true">
                 <use xlinkHref="#icon-zuzhiguanli"></use>
@@ -38,7 +49,11 @@ class Navbarcomp extends React.Component<IProps, {}>{
         );
       }else{
         return (
-          <li className="menu-item">
+          <li
+              className="menu-item"
+              key={data.id}
+              onClick={()=>this.firstMenuhoverin(data.name)}
+          >
             <a>{data.name}</a>
           </li>
         );
@@ -46,6 +61,9 @@ class Navbarcomp extends React.Component<IProps, {}>{
     })
   }
   render(){
+    const {smenuvisible} = this.props;
+    // debugger;
+    const secondMenustyle = {display: smenuvisible?'block':'none'};
     return (
       <div>
         <header className="hr-header">
@@ -61,31 +79,16 @@ class Navbarcomp extends React.Component<IProps, {}>{
             </ul>
           </div>
         </header>
-        <div className="hr-menu">
+        <div
+            className="hr-menu" 
+            onMouseLeave={()=>this.firstMenuhoverOut()}
+        >
           <nav>
             <ul className="menu-group clear">
               {this.FirstMenulist()}
-              {/* <li className="menu-item">
-                <a>
-                  <svg className="icon" aria-hidden="true">
-                    <use xlinkHref="#icon-zuzhiguanli"></use>
-                  </svg>
-                  组织管理
-                </a>
-                <div className="menu-item_in" >
-                  <dl className="fr">
-                      <dd>组织机构管理</dd>
-                      <dd>人员调动管理</dd>
-                      <dd>密码信息重置</dd>
-                    </dl>
-                </div>
-              </li>
-              <li className="menu-item">
-                <a>考勤管理</a>
-              </li> */}
             </ul>
           </nav>
-          <div className="menu-content">
+          <div className="menu-content" style={secondMenustyle}>
             12345
           </div>
         </div>
@@ -96,13 +99,12 @@ class Navbarcomp extends React.Component<IProps, {}>{
 
 const mapStateToProps=(state: any) => {
   const {homeState} = state;
-  return { menuList: homeState.menuList };
+  return {
+    menuList: homeState.menuList,
+    smenuvisible:homeState.secondmenuVisible
+  };
 }
-// const mapDispatchToProps=(dispatch:any)=>({
-//   doChangeCategorys: (menuList:Array<any>)=>dispatch(getMenulistcs(menuList))
-// });
-// console.log(mapDispatchToProps);
 export default connect(
   mapStateToProps,
-  {getMenulistByuser}
+  {getMenulistByuser, changeSecondmenu}
 )(Navbarcomp);

@@ -179,6 +179,7 @@ $login: "login";
     position: relative;
     display: inline-block;
     padding-right: 0.2rem;
+    cursor: pointer;
   }
   & .menu-item:hover .menu-item_in{
     display: block;
@@ -193,14 +194,15 @@ $login: "login";
     height: 0.48rem;
     background-color: #f0f0f0;
     overflow: hidden;
-    animation: menucontent 1s cubic-bezier(0,0,1,1) 1;
-    -webkit-animation: menucontent 1s cubic-bezier(0,0,1,1) 1; 
+    animation: menucontent 0.5s cubic-bezier(0,0,1,1) 1;
+    -webkit-animation: menucontent 0.5s cubic-bezier(0,0,1,1) 1; 
   }
   @keyframes menucontent{
     from {height: 0;}
     to {height: 0.48rem;}
   }
 }
+
 .menu-item_in{
   position: absolute;
   display: none;
@@ -208,13 +210,10 @@ $login: "login";
   height: auto;
   background-color: #f0f0f0;
   overflow: hidden;
-  animation: menu-item-show 1s cubic-bezier(0,0,1,1) 1;
-  -webkit-animation: menu-item-show 1s cubic-bezier(0,0,1,1) 1; 
+  animation: menuitem-show 1s cubic-bezier(0,0,1,1) 1;
+  -webkit-animation: menuitem-show 1s cubic-bezier(0,0,1,1) 1; 
 }
-@keyframes menu-item-show{
+@keyframes menuitem-show{
   from {height: 0;}
   to {height: 150px;}
-}
-.fr dd{
-  min-height: 30px;
 }
