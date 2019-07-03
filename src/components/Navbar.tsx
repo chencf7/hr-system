@@ -18,12 +18,16 @@ class Navbarcomp extends React.Component<IProps, {}>{
   componentDidMount(){
     this.props.getMenulistByuser();
   }
+  firstMenuhoverin(menuname:string){
+    console.log(menuname);
+    debugger;
+  }
   FirstMenulist(){
     const {menuList}=this.props;
     return menuList.map((data, index)=>{
       if(index===0){
         return (
-          <li className="menu-item">
+          <li className="menu-item" onMouseEnter={()=>this.firstMenuhoverin(data.name)}>
             <a>
               <svg className="icon" aria-hidden="true">
                 <use xlinkHref="#icon-zuzhiguanli"></use>
