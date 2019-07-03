@@ -158,10 +158,10 @@ $login: "login";
 
 .#{$hr}-menu{
   box-sizing: border-box;
-  display: flex;
+  // display: flex;
   width: 100%;
   padding: 0 0.16rem;
-  height: 0.48rem;
+  // height: 0.48rem;
 
   & nav{
     position: relative;
@@ -187,6 +187,19 @@ $login: "login";
     color: #333;
     line-height: 0.48rem;
   }
+  & .menu-content{
+    display: none;
+    width: 100%;
+    height: 0.48rem;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    animation: menucontent 1s cubic-bezier(0,0,1,1) 1;
+    -webkit-animation: menucontent 1s cubic-bezier(0,0,1,1) 1; 
+  }
+  @keyframes menucontent{
+    from {height: 0;}
+    to {height: 0.48rem;}
+  }
 }
 .menu-item_in{
   position: absolute;
@@ -195,8 +208,8 @@ $login: "login";
   height: auto;
   background-color: #f0f0f0;
   overflow: hidden;
-  animation: menu-item-show 2s 1;
-  -webkit-animation: menu-item-show 2s 1; 
+  animation: menu-item-show 1s cubic-bezier(0,0,1,1) 1;
+  -webkit-animation: menu-item-show 1s cubic-bezier(0,0,1,1) 1; 
 }
 @keyframes menu-item-show{
   from {height: 0;}

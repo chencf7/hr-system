@@ -1,21 +1,24 @@
-import {LOGIN_IN} from 'redux/Actiontypes';
+import * as Actiontype from 'redux/Actiontypes';
 
-export interface userInfo{
+export interface homeState{
   userId: string,
-  userName: string
+  userName: string,
+  menuList: Array<any>
 }
 
-const initialState:userInfo={
+const initialState:homeState={
   userId: '',
-  userName: ''
+  userName: '',
+  menuList: []
 }
 
-const homeReducer=(state:userInfo=initialState, action: any)=>{
+const homeReducer=(state:homeState=initialState, action: any)=>{
+  debugger;
   switch(action.type){
-    case LOGIN_IN:
+    case Actiontype.LOGIN_IN:
       return {...state, userId: '123', userName: '123'};
     default: {
-      return state;
+      return {...state};
     }
   }
 }

@@ -3,13 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 
 import reducer from 'redux/reducers';
 import Router from 'routerconfig/Router';
 
-const store=createStore(reducer);
+const middleware:Array<any> = [thunk];
+//当配置环境为非生产环境时，加入logger
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(createLogger());
+}
+
+const store=createStore(
+  reducer,
+  applyMiddleware(...middleware)
+);
 
 ReactDOM.render(
   <Provider store={store}>
