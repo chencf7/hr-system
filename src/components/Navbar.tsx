@@ -1,22 +1,45 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Icon} from 'antd';
-import {getMenulistcs, getMenulistByuser} from 'redux/actions/homeAction';
-
+// import {getMenulistcs, getMenulistByuser} from 'redux/actions/homeAction';
+import {getMenulistByuser} from 'redux/actions/homeAction';
 import 'assets/css/home.scss';
 
 interface IProps{
-  getMenulistByuser?: any
+  menuList:Array<any>,
+  getMenulistByuser?:any
 }
 
 // state不能null
 class Navbarcomp extends React.Component<IProps, {}>{
-  constructor(props: any){
+  constructor(props:any){
     super(props);
   }
   componentDidMount(){
-    debugger;
     this.props.getMenulistByuser();
+  }
+  FirstMenulist(){
+    const {menuList}=this.props;
+    return menuList.map((data, index)=>{
+      if(index===0){
+        return (
+          <li className="menu-item">
+            <a>
+              <svg className="icon" aria-hidden="true">
+                <use xlinkHref="#icon-zuzhiguanli"></use>
+              </svg>
+              {data.name}
+            </a>
+          </li>
+        );
+      }else{
+        return (
+          <li className="menu-item">
+            <a>{data.name}</a>
+          </li>
+        );
+      }
+    })
   }
   render(){
     return (
@@ -37,7 +60,8 @@ class Navbarcomp extends React.Component<IProps, {}>{
         <div className="hr-menu">
           <nav>
             <ul className="menu-group clear">
-              <li className="menu-item">
+              {this.FirstMenulist()}
+              {/* <li className="menu-item">
                 <a>
                   <svg className="icon" aria-hidden="true">
                     <use xlinkHref="#icon-zuzhiguanli"></use>
@@ -54,7 +78,7 @@ class Navbarcomp extends React.Component<IProps, {}>{
               </li>
               <li className="menu-item">
                 <a>考勤管理</a>
-              </li>
+              </li> */}
             </ul>
           </nav>
           <div className="menu-content">
@@ -66,15 +90,15 @@ class Navbarcomp extends React.Component<IProps, {}>{
   }
 }
 
-const mapStateToProps=(state: any) => ({
-  menuList: state.menuList
-})
-const mapDispatchToProps=(dispatch:any)=>({
-  doChangeCategorys: (menuList:Array<any>)=>dispatch(getMenulistcs(menuList))
-});
-console.log(mapDispatchToProps);
+const mapStateToProps=(state: any) => {
+  const {homeState} = state;
+  return { menuList: homeState.menuList };
+}
+// const mapDispatchToProps=(dispatch:any)=>({
+//   doChangeCategorys: (menuList:Array<any>)=>dispatch(getMenulistcs(menuList))
+// });
+// console.log(mapDispatchToProps);
 export default connect(
   mapStateToProps,
   {getMenulistByuser}
-  //Object.assign(mapDispatchToProps, )
 )(Navbarcomp);

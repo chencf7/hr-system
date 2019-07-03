@@ -1,4 +1,4 @@
 import {combineReducers} from 'redux';
-import home from 'redux/reducers/homeReducer';
+import homeState from 'redux/reducers/homeReducer';
 
-export default combineReducers({home});
+export default combineReducers({homeState});

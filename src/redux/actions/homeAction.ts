@@ -18,11 +18,11 @@ export const getMenulistcs=(menuList:any)=>({
 // }
 // redux-thunk的异步action写法
 export const getMenulistByuser = () => (dispatch:any) => {
-  debugger;
   Http.post(Url.getMenu).then((ret:any)=>{
-    console.log(ret);
+    //if(ret.)
+    dispatch({
+      type: Actiontype.Getmenulist,
+      menus: ret
+    });
   })
-  dispatch({
-    type: 'type_getMenuList'
-  });
 };
