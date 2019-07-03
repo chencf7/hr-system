@@ -8,7 +8,7 @@ import {
 import 'assets/css/home.scss';
 
 interface IProps{
-  menuList:Array<any>,
+  menulist:Array<any>,
   smenuvisible:boolean,
   getMenulistByuser?:any,
   changeSecondmenu:Function
@@ -24,20 +24,20 @@ class Navbarcomp extends React.Component<IProps, {}>{
   }
   firstMenuhoverin(menuname:string){
     console.log(menuname);
-    this.props.changeSecondmenu(true);
+    this.props.changeSecondmenu(true, menuname);
   }
   firstMenuhoverOut(){
     this.props.changeSecondmenu(false);
   }
   FirstMenulist(){
-    const {menuList}=this.props;
-    return menuList.map((data, index)=>{
+    const {menulist}=this.props;
+    return menulist.map((data, index)=>{
       if(index===0){
         return (
           <li
               className="menu-item"
               key={data.id}
-              onClick={()=>this.firstMenuhoverin(data.name)}
+              onMouseEnter={()=>this.firstMenuhoverin(data.name)}
           >
             <a>
               <svg className="icon" aria-hidden="true">
@@ -52,7 +52,7 @@ class Navbarcomp extends React.Component<IProps, {}>{
           <li
               className="menu-item"
               key={data.id}
-              onClick={()=>this.firstMenuhoverin(data.name)}
+              onMouseEnter={()=>this.firstMenuhoverin(data.name)}
           >
             <a>{data.name}</a>
           </li>
@@ -80,7 +80,7 @@ class Navbarcomp extends React.Component<IProps, {}>{
           </div>
         </header>
         <div
-            className="hr-menu" 
+            className="hr-menu"
             onMouseLeave={()=>this.firstMenuhoverOut()}
         >
           <nav>
@@ -89,7 +89,10 @@ class Navbarcomp extends React.Component<IProps, {}>{
             </ul>
           </nav>
           <div className="menu-content" style={secondMenustyle}>
-            12345
+            <dl>
+              <dd>组织管理</dd>
+              <dd>人员管理</dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -100,8 +103,9 @@ class Navbarcomp extends React.Component<IProps, {}>{
 const mapStateToProps=(state: any) => {
   const {homeState} = state;
   return {
-    menuList: homeState.menuList,
-    smenuvisible:homeState.secondmenuVisible
+    menulist: homeState.menuList,
+    smenuvisible: homeState.secondmenuVisible,
+    smenulist: homeState.secondmenuList
   };
 }
 export default connect(

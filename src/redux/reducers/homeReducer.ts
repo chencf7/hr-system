@@ -4,14 +4,16 @@ export interface homeState{
   userId: string,
   userName: string,
   menuList: Array<any>,
-  secondmenuVisible: boolean
+  secondmenuVisible: boolean,
+  secondmenuList: Array<any>
 }
 
 const initialState:homeState={
   userId: '',
   userName: '',
   menuList: [],
-  secondmenuVisible: false
+  secondmenuVisible: false,
+  secondmenuList: []
 }
 
 const homeReducer=(state:homeState=initialState, action: any)=>{
