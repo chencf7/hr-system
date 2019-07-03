@@ -1,5 +1,14 @@
 [
-  {"id": 1, "name": "iPad 4 Mini", "price": 500.01, "inventory": 2},
-  {"id": 2, "name": "H&M T-Shirt White", "price": 10.99, "inventory": 10},
-  {"id": 3, "name": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5}
+  {"id": 1, "name": "iPad 4 Mini", "price": 500.01, "inventory": 2, "children":[
+    {"name": "微循环"},
+    {"name": "未知之地"}
+  ]},
+  {"id": 2, "name": "H&M T-Shirt White", "price": 10.99, "inventory": 10, "children":[
+    {"name": "思考思考"},
+    {"name": "无论如何"}
+  ]},
+  {"id": 3, "name": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5, "children":[
+    {"name": "噜啦啦"},
+    {"name": "怒哈哈哈"}
+  ]}
 ]

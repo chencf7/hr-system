@@ -24,7 +24,21 @@ const homeReducer=(state:homeState=initialState, action: any)=>{
       return {...state, menuList: action.menus};
     }
     case Actiontype.ChangeSecondmenu:{
-      return {...state, secondmenuVisible: action.secondMenuvisible};
+      if(action.filterid){
+        let smlist:any = state.menuList.filter((d)=>d.name===action.filterid);
+        if(smlist&&smlist.length>0){
+          return {
+            ...state,
+            secondmenuVisible: action.secondMenuvisible,
+            secondmenuList: [...smlist[0].children||[]]
+          };
+        }
+      }
+      return {
+        ...state,
+        secondmenuVisible: action.secondMenuvisible,
+        secondmenuList: []
+      };
     }
     default: {
       return {...state};

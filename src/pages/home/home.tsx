@@ -14,6 +14,7 @@ class Homecomp extends React.Component<IProps, IState>{
     return (
       <div>
         <Navbar></Navbar>
+        <div>body content</div>
       </div>
     );
   }

@@ -37,10 +37,9 @@ export const getMenulistByuser = () => (dispatch:any) => {
 };
 
 export const changeSecondmenu=(visible:boolean,　smid:string)=>{
-  debugger;
   return {
     type: Actiontype.ChangeSecondmenu,
     secondMenuvisible: visible,
-    secondmenuList: smid
+    filterid: smid
   }
 };

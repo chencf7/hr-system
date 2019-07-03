@@ -10,6 +10,7 @@ import 'assets/css/home.scss';
 interface IProps{
   menulist:Array<any>,
   smenuvisible:boolean,
+  smenulist:Array<any>,
   getMenulistByuser?:any,
   changeSecondmenu:Function
 }
@@ -61,7 +62,8 @@ class Navbarcomp extends React.Component<IProps, {}>{
     })
   }
   render(){
-    const {smenuvisible} = this.props;
+    const {smenuvisible, smenulist} = this.props;
+    // console.log(smenulist);
     // debugger;
     const secondMenustyle = {display: smenuvisible?'block':'none'};
     return (
@@ -90,8 +92,7 @@ class Navbarcomp extends React.Component<IProps, {}>{
           </nav>
           <div className="menu-content" style={secondMenustyle}>
             <dl>
-              <dd>组织管理</dd>
-              <dd>人员管理</dd>
+              {smenulist.map((d)=><dd key={d.name}>{d.name}</dd>)}
             </dl>
           </div>
         </div>
