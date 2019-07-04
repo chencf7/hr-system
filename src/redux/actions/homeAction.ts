@@ -43,3 +43,10 @@ export const changeSecondmenu=(visible:boolean,　smid:string)=>{
     filterid: smid
   }
 };
+
+export const clickSecondmenu=(smname:string)=>{
+  return {
+    type: Actiontype.ClickSecondmenu,
+    currentMenu: smname
+  }
+};

@@ -1,9 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Icon} from 'antd';
 import {
   getMenulistByuser,
-  changeSecondmenu
+  changeSecondmenu,
+  clickSecondmenu
 } from 'redux/actions/homeAction';
 import 'assets/css/home.scss';
 
@@ -12,11 +14,12 @@ interface IProps{
   smenuvisible:boolean,
   smenulist:Array<any>,
   getMenulistByuser?:any,
-  changeSecondmenu:Function
+  changeSecondmenu:Function,
+  clickSecondmenu:Function
 }
 
 // state不能null
-class Navbarcomp extends React.Component<IProps, {}>{
+class Navbarcomp extends React.Component<IProps, any>{
   constructor(props:Readonly<IProps>){
     super(props);
   }
@@ -27,43 +30,47 @@ class Navbarcomp extends React.Component<IProps, {}>{
     //console.log(menuname);
     this.props.changeSecondmenu(true, menuname);
   }
-  firstMenuhoverOut(){
+  firstMenuhoverout(){
     this.props.changeSecondmenu(false);
   }
-  FirstMenulist(){
+  secondMenuclick(menuname: string){
+    this.props.clickSecondmenu(menuname);
+  }
+  CreateMenulist(){
     const {menulist}=this.props;
+    // const getSecondMenus = (menus:any)=>{
+    //   if(menus&&menus instanceof Array){
+    //     return menus.map((m)=><dd key={m.name}>{m.name}</dd>);
+    //   }else
+    //     return null;
+    // }
     return menulist.map((data, index)=>{
+      let iconre=null;
       if(index===0){
-        return (
-          <li
-              className="menu-item"
-              key={data.id}
-              onMouseEnter={()=>this.firstMenuhoverin(data.name)}
-          >
-            <a>
-              <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#icon-zuzhiguanli"></use>
-              </svg>
-              {data.name}
-            </a>
-          </li>
-        );
-      }else{
-        return (
-          <li
-              className="menu-item"
-              key={data.id}
-              onMouseEnter={()=>this.firstMenuhoverin(data.name)}
-          >
-            <a>{data.name}</a>
-          </li>
+        iconre = (
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref="#icon-zuzhiguanli"></use>
+          </svg>
         );
       }
+      return (
+        <li
+            className="menu-item"
+            key={data.id}
+            onClick={()=>this.firstMenuhoverin(data.name)}
+        >
+          <a>{iconre}{data.name}</a>
+          {/* <div className="menu-item_in">
+            <div className="menu-content-group">
+              <dl>{getSecondMenus(data.children)}</dl>
+            </div>
+          </div> */}
+        </li>
+      );
     })
   }
   render(){
     const {smenuvisible, smenulist} = this.props;
-    // debugger;
     const secondMenustyle = {display: smenuvisible?'block':'none'};
     return (
       <div>
@@ -82,17 +89,21 @@ class Navbarcomp extends React.Component<IProps, {}>{
         </header>
         <div
             className="hr-menu"
-            onMouseLeave={()=>this.firstMenuhoverOut()}
+            onMouseLeave={()=>this.firstMenuhoverout()}
         >
           <nav>
             <ul className="menu-group clear">
-              {this.FirstMenulist()}
+              {this.CreateMenulist()}
             </ul>
           </nav>
           <div className="menu-content" style={secondMenustyle}>
             <div className="menu-content-group">
               <dl>
-                {smenulist.map((d)=><dd key={d.name}>{d.name}</dd>)}
+                {smenulist.map((md)=>(
+                  <dd key={md.name} onClick={()=>this.secondMenuclick(md.name)}>
+                    <Link to="./organization">{md.name}</Link>
+                  </dd>
+                ))}
               </dl>
             </div>
           </div>
@@ -112,5 +123,5 @@ const mapStateToProps=(state: any) => {
 }
 export default connect(
   mapStateToProps,
-  {getMenulistByuser, changeSecondmenu}
+  {getMenulistByuser, changeSecondmenu, clickSecondmenu}
 )(Navbarcomp);

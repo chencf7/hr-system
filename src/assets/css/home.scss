@@ -184,7 +184,7 @@ $login: "login";
   & .menu-item:hover .menu-item_in{
     display: block;
   }
-  & a{
+  & .menu-item a{
     color: #333;
     line-height: 0.48rem;
   }
@@ -196,24 +196,25 @@ $login: "login";
     background-color: #f0f0f0;
     border-radius: 0.1rem;
     overflow: hidden;
-    animation: menucontent 0.5s cubic-bezier(0,0,1,1) 1;
-    -webkit-animation: menucontent 0.5s cubic-bezier(0,0,1,1) 1; 
+    animation: menucontent 0.2s cubic-bezier(0,0,1,1) 1;
+    -webkit-animation: menucontent 0.2s cubic-bezier(0,0,1,1) 1; 
   }
   @keyframes menucontent{
     from {height: 0;}
     to {height: 0.36rem;}
   }
   & .menu-content-group{
+    // position: absolute;
     display: table;
     margin-left: 0.15rem;
     height: 100%;
   }
-  & .menu-content dl{
+  & .menu-content-group dl{
     display: table-cell;
     vertical-align: middle;
     margin-bottom: 0;
   }
-  & .menu-content dd{
+  & .menu-content-group dd{
     display: inline-block;
     margin-right: 0.15rem;
     margin-bottom: 0;
@@ -225,18 +226,16 @@ $login: "login";
     border-radius: 4px;
   }
 }
-
 .menu-item_in{
   position: absolute;
   display: none;
-  width: 3rem;
-  height: auto;
+  height: 0.36rem;
   background-color: #f0f0f0;
   overflow: hidden;
-  animation: menuitem-show 1s cubic-bezier(0,0,1,1) 1;
-  -webkit-animation: menuitem-show 1s cubic-bezier(0,0,1,1) 1; 
+  animation: menuitem-show 0.2s cubic-bezier(0,0,1,1) 1;
+  -webkit-animation: menuitem-show 0.2s cubic-bezier(0,0,1,1) 1; 
 }
 @keyframes menuitem-show{
   from {height: 0;}
-  to {height: 150px;}
+  to {height: 0.36rem;}
 }

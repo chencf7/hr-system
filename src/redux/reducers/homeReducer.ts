@@ -5,7 +5,8 @@ export interface homeState{
   userName: string,
   menuList: Array<any>,
   secondmenuVisible: boolean,
-  secondmenuList: Array<any>
+  secondmenuList: Array<any>,
+  currentMenu: string
 }
 
 const initialState:homeState={
@@ -13,7 +14,8 @@ const initialState:homeState={
   userName: '',
   menuList: [],
   secondmenuVisible: false,
-  secondmenuList: []
+  secondmenuList: [],
+  currentMenu: ''
 }
 
 const homeReducer=(state:homeState=initialState, action: any)=>{
@@ -39,6 +41,12 @@ const homeReducer=(state:homeState=initialState, action: any)=>{
         secondmenuVisible: action.secondMenuvisible,
         secondmenuList: []
       };
+    }
+    case Actiontype.ClickSecondmenu:{
+      if(action.currentMenu){
+        return {...state, currentMenu: action.currentMenu};
+      }
+      return { ...state };
     }
     default: {
       return {...state};
