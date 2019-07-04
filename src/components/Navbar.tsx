@@ -17,14 +17,14 @@ interface IProps{
 
 // state不能null
 class Navbarcomp extends React.Component<IProps, {}>{
-  constructor(props:any){
+  constructor(props:Readonly<IProps>){
     super(props);
   }
   componentDidMount(){
     this.props.getMenulistByuser();
   }
   firstMenuhoverin(menuname:string){
-    console.log(menuname);
+    //console.log(menuname);
     this.props.changeSecondmenu(true, menuname);
   }
   firstMenuhoverOut(){
@@ -63,7 +63,6 @@ class Navbarcomp extends React.Component<IProps, {}>{
   }
   render(){
     const {smenuvisible, smenulist} = this.props;
-    // console.log(smenulist);
     // debugger;
     const secondMenustyle = {display: smenuvisible?'block':'none'};
     return (
@@ -91,9 +90,11 @@ class Navbarcomp extends React.Component<IProps, {}>{
             </ul>
           </nav>
           <div className="menu-content" style={secondMenustyle}>
-            <dl>
-              {smenulist.map((d)=><dd key={d.name}>{d.name}</dd>)}
-            </dl>
+            <div className="menu-content-group">
+              <dl>
+                {smenulist.map((d)=><dd key={d.name}>{d.name}</dd>)}
+              </dl>
+            </div>
           </div>
         </div>
       </div>

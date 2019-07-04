@@ -19,7 +19,7 @@ const initialState:homeState={
 const homeReducer=(state:homeState=initialState, action: any)=>{
   switch(action.type){
     case Actiontype.LOGIN_IN:
-      return {...state, userId: '123', userName: '123'};
+      return {...state};
     case Actiontype.TYPE_Getmenulist:{
       return {...state, menuList: action.menus};
     }

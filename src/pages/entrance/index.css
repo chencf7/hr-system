@@ -14,7 +14,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-ul, li{
+ul, li, dl, dt, dd{
   margin: 0;
   padding: 0;
 }
