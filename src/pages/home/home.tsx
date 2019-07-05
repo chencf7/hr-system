@@ -4,7 +4,7 @@ import Layout from 'components/Layout';
 
 import 'assets/css/home.scss';
 interface IProps{
-  currentmenu:string,
+  currentmenu:string;
 }
 interface IState{}
 

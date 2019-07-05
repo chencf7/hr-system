@@ -10,12 +10,12 @@ import {
 import 'assets/css/home.scss';
 
 interface IProps{
-  menulist:Array<any>,
-  smenuvisible:boolean,
-  smenulist:Array<any>,
-  getMenulistByuser?:any,
-  changeSecondmenu:Function,
-  clickSecondmenu:Function
+  menulist:Array<any>;
+  smenuvisible:boolean;
+  smenulist:Array<any>;
+  getMenulistByuser?:any;
+  changeSecondmenu:Function;
+  clickSecondmenu:Function;
 }
 
 // state不能null
