@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Layout from 'components/Layout';
+// import Layout from 'components/Layout';
 
 import 'assets/css/home.scss';
 
@@ -15,9 +15,7 @@ class Orgcomp extends React.Component<IProps, IState>{
   }
   render(){
     return (
-      <Layout>
-        <div>12333</div>
-      </Layout>
+      <div>12333</div>
     );
   }
 }

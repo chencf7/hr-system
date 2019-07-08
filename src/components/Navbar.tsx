@@ -100,7 +100,7 @@ class Navbarcomp extends React.Component<IProps, any>{
             <div className="menu-content-group">
               <dl>
                 {smenulist.map((md)=>(
-                  <dd key={md.name} onClick={()=>this.secondMenuclick(md.name)}>
+                  <dd key={md.name}>
                     <Link to="./organization">{md.name}</Link>
                   </dd>
                 ))}

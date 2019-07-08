@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Layout from 'components/Layout';
+// import Layout from 'components/Layout';
 
 import 'assets/css/home.scss';
+
 interface IProps{
-  currentmenu:string;
+  // currentmenu:string;
 }
 interface IState{}
 
@@ -14,9 +15,7 @@ class Homecomp extends React.Component<IProps, IState>{
   }
   render(){
     return (
-      <Layout>
-        <div>{this.props.currentmenu}</div>
-      </Layout>
+      <div>123</div>
     );
   }
 }

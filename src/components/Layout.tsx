@@ -1,8 +1,12 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
+import {Route} from 'react-router-dom';
 import Navbar from 'components/Navbar';
 
+import Home from 'pages/home/home';
+import Organization from 'pages/organization/orgmanage';
+
 interface IProps{
-  children: ReactElement|Array<ReactElement>;
+  // children?: ReactElement|Array<ReactElement>;
 }
 export default class Layoutcomp extends React.Component<IProps, {}>{
   constructor(props:Readonly<IProps>){
@@ -14,7 +18,9 @@ export default class Layoutcomp extends React.Component<IProps, {}>{
       <div>
         <Navbar></Navbar>
         <section>
-          {this.props.children}
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/organization" component={Organization} />
+          <Route exact path="/" component={Home} />
         </section>
       </div>
     );
