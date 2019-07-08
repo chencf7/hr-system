@@ -35,6 +35,7 @@ class Navbarcomp extends React.Component<IProps, any>{
   }
   secondMenuclick(menuname: string){
     this.props.clickSecondmenu(menuname);
+    console.log();
   }
   CreateMenulist(){
     const {menulist}=this.props;
