@@ -15,7 +15,7 @@ class Homecomp extends React.Component<IProps, IState>{
   }
   render(){
     return (
-      <div>123</div>
+      <div>首页，这个是网站的首页，包含一些通知信息</div>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {Icon} from 'antd';
+import {Icon, Breadcrumb} from 'antd';
 import {
   getMenulistByuser,
   changeSecondmenu,
@@ -80,21 +80,16 @@ class Navbarcomp extends React.Component<IProps, any>{
             <div></div>
             <ul className="hr-navbar-group">
               <li className="hr-navbar-item">
-                <span id="idspan_user">陈超凡</span>
+                <span id="idspan_user">lebroncc</span>
                 <Icon type="mail" style={{fontSize: 14, paddingLeft: 5}} />
               </li>
               <li className="hr-navbar-item"><a>退出</a></li>
             </ul>
           </div>
         </header>
-        <div
-            className="hr-menu"
-            onMouseLeave={()=>this.firstMenuhoverout()}
-        >
+        <div className="hr-menu" onMouseLeave={()=>this.firstMenuhoverout()}>
           <nav>
-            <ul className="menu-group clear">
-              {this.CreateMenulist()}
-            </ul>
+            <ul className="menu-group clear">{this.CreateMenulist()}</ul>
           </nav>
           <div className="menu-content" style={secondMenustyle}>
             <div className="menu-content-group">
@@ -107,6 +102,18 @@ class Navbarcomp extends React.Component<IProps, any>{
               </dl>
             </div>
           </div>
+        </div>
+        <div style={{paddingLeft: '0.16rem'}}>
+          <Breadcrumb>
+            <Breadcrumb.Item><a href="">首页</a></Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <a href="">Application Center</a>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <a href="">Application List</a>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>An Application</Breadcrumb.Item>
+          </Breadcrumb>
         </div>
       </div>
     );

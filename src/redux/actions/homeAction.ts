@@ -3,6 +3,7 @@ import datafactory from 'utils/Datafactory';
 import * as Url from 'utils/Url';
 import {Http} from 'utils/Utilmethod';
 
+// 测试方法
 export const getMenulistcs=(menuList:any)=>({
   type: Actiontype.LOGIN_IN,
   menuList

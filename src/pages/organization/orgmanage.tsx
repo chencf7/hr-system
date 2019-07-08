@@ -15,7 +15,7 @@ class Orgcomp extends React.Component<IProps, IState>{
   }
   render(){
     return (
-      <div>12333</div>
+      <div>组织管理页，包含相关组织信息</div>
     );
   }
 }
